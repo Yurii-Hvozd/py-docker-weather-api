@@ -2,6 +2,8 @@ import os
 
 import requests
 
+URL = "https://api.weatherapi.com/v1/current.json"
+CITY = "Paris"
 
 def get_weather() -> None:
     api_key = os.getenv("API_KEY")
@@ -10,10 +12,10 @@ def get_weather() -> None:
 
     params = {
         "key": api_key,
-        "q": "Paris",
+        "q": CITY,
     }
 
-    response = requests.get(url, params=params)
+    response = requests.get(URL, params=params)
 
     data = response.json()
 
